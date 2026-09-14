@@ -13,9 +13,9 @@
 
 ---
 
-I build the parts of a system that other teams build on top of: shared libraries, internal APIs, deployment tooling and the observability that tells you when any of it breaks. Day to day that means **.NET and Azure** on a cross-cutting platform team — designing core services, keeping a large codebase modern (.NET Core 3.1 → .NET 10), and wiring up distributed, event-driven flows.
+I build the parts of a system that other teams build on top of. Shared libraries, internal APIs, deployment tooling and the observability that tells you when any of it breaks. Day to day that means **.NET and Azure** on a cross-cutting platform team — designing core services, keeping a large codebase modern (.NET Core 3.1 → .NET 10), and wiring up distributed, event-driven flows.
 
-Outside work I build **realtime audio and video software**. That started with timing systems for rally motorsport in 2016 and turned into [LibreTracks](https://github.com/otonielpv/LibreTracks), a multitrack DAW with a C++ audio engine that now runs on five platforms. Different domain, same problem: getting a lot of moving parts to stay correct under a deadline that does not wait for you — a HTTP timeout in one case, a 5 ms audio callback in the other.
+Outside work I build **realtime audio and video software**. That started with timing systems for rally motorsport in 2016 and turned into [LibreTracks](https://github.com/otonielpv/LibreTracks), a multitrack DAW with a C++ audio engine that now runs on five platforms. Different domain, same problem. A lot of moving parts have to stay correct under a deadline that does not wait for you, a HTTP timeout in one case and a 5 ms audio callback in the other.
 
 <br>
 
@@ -37,7 +37,7 @@ Outside work I build **realtime audio and video software**. That started with ti
   <img alt="Commits" src="https://img.shields.io/github/commit-activity/t/otonielpv/LibreTracks?style=flat-square&color=64748B">
 </p>
 
-LibreTracks is built for musicians playing live to backing tracks: non-destructive arrangement, section jumps and vamps that land on the beat, per-region transpose and time-stretch, a click and guide-voice bus, and a browser remote so the player can drive the session from a tablet on stage.
+LibreTracks is built for musicians playing live to backing tracks. Non-destructive arrangement, section jumps and vamps that land on the beat, per-region transpose and time-stretch, a click and guide-voice bus, and a browser remote so the player can drive the session from a tablet on stage.
 
 The interesting part is the boundary. Realtime playback lives in a **C++ engine** that must never block or allocate on the audio thread. **Rust** owns the domain model, persistence and orchestration. **React + Tauri** owns editing and presentation. Each layer only knows what it needs to, which is what makes it possible to add features to the UI without putting a click in someone's in-ear monitor.
 
